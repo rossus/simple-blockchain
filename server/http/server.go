@@ -1,4 +1,4 @@
-package server
+package http
 
 import (
 	"log"
@@ -10,8 +10,8 @@ import (
 func Run() error {
 	mux := MakeMuxRouter()
 
-	httpAddr := os.Getenv("ADDR")
-	log.Println("Listening on ", os.Getenv("ADDR"))
+	httpAddr := os.Getenv("ADDR1")
+	log.Println("Listening on ", os.Getenv("ADDR1"))
 
 	s := &http.Server{
 		Addr:           ":" + httpAddr,
