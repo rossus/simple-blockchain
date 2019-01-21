@@ -3,7 +3,7 @@ package bchainer
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"github.com/rossus/simple_blockchain/types"
+	"github.com/rossus/simple-blockchain/types"
 )
 
 func CalculateHash(block types.Block) string {

@@ -1,8 +1,8 @@
 package bchainer
 
 import (
-	"github.com/rossus/simple_blockchain/blockchain"
-	"github.com/rossus/simple_blockchain/types"
+	"github.com/rossus/simple-blockchain/blockchain"
+	"github.com/rossus/simple-blockchain/types"
 )
 
 func ReplaceChain(newBlocks []types.Block) {

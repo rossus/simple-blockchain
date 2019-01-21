@@ -3,9 +3,9 @@ package tutorial
 import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/joho/godotenv"
-	"github.com/rossus/simple_blockchain/blockchain"
-	s_http "github.com/rossus/simple_blockchain/server/http"
-	"github.com/rossus/simple_blockchain/types"
+	"github.com/rossus/simple-blockchain/blockchain"
+	s_http "github.com/rossus/simple-blockchain/server/http"
+	"github.com/rossus/simple-blockchain/types"
 	"log"
 	"time"
 )

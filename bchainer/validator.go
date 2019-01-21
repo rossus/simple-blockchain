@@ -1,7 +1,7 @@
 package bchainer
 
 import (
-	"github.com/rossus/simple_blockchain/types"
+	"github.com/rossus/simple-blockchain/types"
 )
 
 func IsBlockValid(newBlock, oldBlock types.Block) bool {

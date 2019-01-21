@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/rossus/simple_blockchain/tutorial"
+	"github.com/rossus/simple-blockchain/tutorial"
 	"os"
 )
 

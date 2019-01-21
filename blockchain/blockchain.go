@@ -1,6 +1,6 @@
 package blockchain
 
-import "github.com/rossus/simple_blockchain/types"
+import "github.com/rossus/simple-blockchain/types"
 
 var Blockchain []types.Block
 

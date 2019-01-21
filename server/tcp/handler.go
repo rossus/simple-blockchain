@@ -3,9 +3,9 @@ package tcp
 import (
 	"bufio"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/rossus/simple_blockchain/bchainer"
-	"github.com/rossus/simple_blockchain/blockchain"
-	"github.com/rossus/simple_blockchain/types"
+	"github.com/rossus/simple-blockchain/bchainer"
+	"github.com/rossus/simple-blockchain/blockchain"
+	"github.com/rossus/simple-blockchain/types"
 	"io"
 	"log"
 	"net"

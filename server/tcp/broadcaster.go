@@ -2,7 +2,7 @@ package tcp
 
 import (
 	"encoding/json"
-	"github.com/rossus/simple_blockchain/blockchain"
+	"github.com/rossus/simple-blockchain/blockchain"
 	"io"
 	"log"
 	"net"

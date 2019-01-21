@@ -2,9 +2,9 @@ package http
 
 import (
 	"encoding/json"
-	"github.com/rossus/simple_blockchain/bchainer"
-	"github.com/rossus/simple_blockchain/blockchain"
-	"github.com/rossus/simple_blockchain/types"
+	"github.com/rossus/simple-blockchain/bchainer"
+	"github.com/rossus/simple-blockchain/blockchain"
+	"github.com/rossus/simple-blockchain/types"
 	"io"
 	"log"
 	"net/http"
