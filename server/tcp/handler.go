@@ -2,17 +2,16 @@ package tcp
 
 import (
 	"bufio"
+	"encoding/json"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/rossus/simple-blockchain/bchainer"
 	"github.com/rossus/simple-blockchain/blockchain"
-	"github.com/rossus/simple-blockchain/types"
 	"io"
 	"log"
 	"net"
 	"strconv"
+	"time"
 )
-
-var bcServer = make(chan []types.Block)
 
 func handleConn(conn net.Conn) {
 
@@ -20,26 +19,23 @@ func handleConn(conn net.Conn) {
 
 	_, err := io.WriteString(conn, "Enter a new BPM:")
 	if err != nil {
-		log.Println("/:---->")
 		log.Fatal(err)
 	}
-
-	Blockchain := blockchain.GetValue()
 
 	scanner := bufio.NewScanner(conn)
 
 	go func() {
 		for scanner.Scan() {
+			Blockchain := blockchain.GetValue()
+
 			bpm, err := strconv.Atoi(scanner.Text())
 			if err != nil {
-				log.Println("-=-=------>")
 				log.Printf("%v is not a number: %v", scanner.Text(), err)
 				continue
 			}
 
 			newBlock, err := bchainer.GenerateBlock(Blockchain[len(Blockchain)-1], bpm)
 			if err != nil {
-				log.Println("yuyuyu---->")
 				log.Println(err)
 				continue
 			}
@@ -49,17 +45,27 @@ func handleConn(conn net.Conn) {
 				bchainer.ReplaceChain(newBlockchain)
 			}
 
-			bcServer <- Blockchain
+			bcServer <- blockchain.GetValue()
 
-			_, err = io.WriteString(conn, "\nEnter a new BPM:\n")
+			_, err = io.WriteString(conn, "\nEnter a new BPM:")
 			if err != nil {
-				log.Println("32rewr---->")
 				log.Fatal(err)
 			}
 		}
 	}()
 
-	go broadcast(conn)
+	go func() {
+		for {
+			time.Sleep(30 * time.Second)
+
+			output, err := json.Marshal(blockchain.GetValue())
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			io.WriteString(conn, string(output))
+		}
+	}()
 
 	for _ = range bcServer {
 		spew.Dump(blockchain.GetValue())

@@ -15,9 +15,10 @@ func lesson2main() {
 
 	err := godotenv.Load()
 	if err != nil {
-		log.Println("zjzjzj---->")
 		log.Fatal(err)
 	}
+
+	s_tcp.SetChannel(make(chan []types.Block))
 
 	t := time.Now()
 	genesisBlock := types.Block{0, t.String(), 0, "", ""}
